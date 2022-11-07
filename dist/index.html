@@ -21,8 +21,7 @@
   </head>
   <body>
     <main>
-      <section class="searchBar" id="searchBar"></section>
-      <section id="currentForecast" class="currentForecast">
+      <section class="searchBar" id="searchBar">
         <form id="searchBar__form" class="searchBar__form">
           <label for="searchBar__text">Enter a location</label>
           <input
@@ -38,10 +37,12 @@
             class="searchBar__button"
             title="Submit Location"
           >
-            Submit
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
           </button>
         </form>
       </section>
+      <section id="currentForecast" class="currentForecast"></section>
       <nav id="navButtons" class="navButtons"></nav>
       <section id="dailyForecast" class="dailyForecast"></section>
     </main>
