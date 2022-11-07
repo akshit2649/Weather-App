@@ -42,8 +42,37 @@
           </button>
         </form>
       </section>
-      <section id="currentForecast" class="currentForecast"></section>
-      <nav id="navButtons" class="navButtons"></nav>
+      <section id="currentForecast" class="currentForecast">
+        <h2 id="currentForecast__location" class="curreForecast__location">
+          Current Conditions
+        </h2>
+        <div
+          id="currentForecast__conditions"
+          class="currentForecast__conditions"
+        ></div>
+      </section>
+      <nav id="navButtons" class="navButtons">
+        <button id="getLocation" class="button" title="Get Location">
+          <i class="fas fa-map-marker-alt"></i>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </button>
+        <button id="home" class="button" title="Home weather">
+          <i class="fas fa-home"></i>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </button>
+        <button id="saveLocation" class="button" title="Save Location">
+          <i class="fas fa-save"></i>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </button>
+        <button id="unit" class="button" title="Toggle Measurement Units">
+          <i class="fas fa-chart-bar"></i>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </button>
+        <button id="refresh" class="button" title="Refresh Weather">
+          <i class="fas fa-sync-alt"></i>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </button>
+      </nav>
       <section id="dailyForecast" class="dailyForecast"></section>
     </main>
   </body>
