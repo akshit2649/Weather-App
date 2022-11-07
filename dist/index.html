@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <main>
+      <section class="searchBar" id="searchBar"></section>
+      <section id="currentForecast" class="currentForecast">
+        <form id="searchBar__form" class="searchBar__form">
+          <label for="searchBar__text">Enter a location</label>
+          <input
+            type="text"
+            id="searchBar__text"
+            class="searchBar__text"
+            size="40"
+            autocomplete="off"
+            placeholder="City, State, Country"
+          />
+          <button
+            id="searchBar__button"
+            class="searchBar__button"
+            title="Submit Location"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+      <nav id="navButtons" class="navButtons"></nav>
+      <section id="dailyForecast" class="dailyForecast"></section>
+    </main>
+  </body>
+</html>
