@@ -1,5 +1,10 @@
 import CurrentLocation from './CurrentLocation.js';
-import { setLocationObject, getHomeLocation, cleanText } from './dataFunctions.js';
+import {
+  setLocationObject,
+  getHomeLocation,
+  cleanText,
+  getCoordsFromApi,
+} from './dataFunctions.js';
 import { setPlaceholderText, addSpinner, displayError, displayApiError } from './domFuntions.js';
 
 const currentLoc = new CurrentLocation();
@@ -40,7 +45,7 @@ const getGeoWeather = (event) => {
 
 const geoError = (errObj) => {
   const errMsg = errObj ? errObj.message : 'Geolcation not supported';
-  displayError(errMsg, errMsg);
+  displayError(errMsg);
 };
 
 const geoSuccess = (position) => {
@@ -59,7 +64,7 @@ const loadWeather = (event) => {
   const savedLocation = getHomeLocation();
   if (!savedLocation && !event) return getGeoWeather();
   if (!savedLocation && event.type === 'click') {
-    displayError('No Home Location Saved', 'Sorry Please save your location first');
+    displayError('No Home Location Saved');
   } else if (savedLocation && !event) {
     displayHomeLocationWeather(savedLocation);
   } else {
@@ -116,16 +121,20 @@ const submitNewLocation = async (event) => {
   const text = document.getElementById('searchBar__text').value;
   const entryText = cleanText(text);
   if (!entryText.length) return;
-  const locationIcon = document.querySelector('.fa-search');
+  const locationIcon = document.querySelector('.fa-magnifying-glass');
   addSpinner(locationIcon);
   const coordsData = await getCoordsFromApi(entryText, currentLoc.getUnit());
-  if (coordsData.cod === 200) {
-    //work with api data
-    const myCoordsObj = {};
-    setLocationObject(currentLoc, myCoordsObj);
-    updateDataAndDisplay(currentLoc);
+  if (coordsData) {
+    if (coordsData.cod === 200) {
+      //work with api data
+      const myCoordsObj = {};
+      setLocationObject(currentLoc, myCoordsObj);
+      updateDataAndDisplay(currentLoc);
+    } else {
+      displayApiError(coordsData);
+    }
   } else {
-    displayApiError(coordsData);
+    displayError('Connection Error');
   }
 };
 

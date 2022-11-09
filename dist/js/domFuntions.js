@@ -16,9 +16,8 @@ const animateButton = (element) => {
   element.nextElementSibling.classList.toggle('none');
 };
 
-export const displayError = (headerMsg, srMsg) => {
+export const displayError = (headerMsg) => {
   updateWeatherLocationHeader(headerMsg);
-  //   updateScreenReaderConfirmation(srMsg);
 };
 
 export const displayApiError = (statusCode) => {
